@@ -1,4 +1,5 @@
 // Sample menu data (Consider fetching this data from a server in a real-world scenario)
+
 const menu = {
     Starters: ["Garlic Bread", "Bruschetta"],
     MainCourses: ["Margherita Pizza", "Spaghetti Carbonara"],
@@ -6,39 +7,69 @@ const menu = {
 };
 
 // Function to display menu items by category
-function displayMenuItems(menu) {
+function generateMenuItems(menu) {
     // Get the menu container element from the HTML
 
     // Loop through each category and its items in the menu object
-
-        // Create an element to represent the category
-
-        // Set the text content of the category element to the category name
-
-        // Append the category element to the menu container
-
-        // Create an element to represent a list of items
-
-        // Append a list of items element to the menu container
-
-        // Loop through the items in the category and create list items
-
-            // Create a list item element
-
-            // Set the text content of the list item element to the item name
-
-            // Attach a click event listener to the list item to add it to the order
-
-            // Append the list item to the list of items
-
-            
+    const menuItems = Object.entries(menu).map(([course, foods]) => {
+       return {course, foods}
+    })
+    //returns course and also its items which are foods
+     return menuItems;
 }
+
+
+
+function displayMenuItems(menuItems) {
+    const menuDiv = document.getElementById("menu")
+
+    menuItems.forEach(menuItem => { //this menuItem perameter will contain all the course names we need to display.comes in handy 
+
+        const menuEl = document.createElement('div');
+        menuEl.classList.add('menu-item');
+        //now we want to display the course names on the browser
+        const heading = document.createElement('h2');
+        //We need to display it , then append it to the menuElement
+        heading.textContent = menuItem.course;
+        menuEl.appendChild(heading)
+       
+        const foodListDiv = document.createElement('div')
+        //We want to display the food list inside the html and also display on the web
+        menuItem.foods.forEach(food => {
+            const foodItemEl = document.createElement('li');
+            foodItemEl.classList.add('food-item')
+
+            foodItemEl.textContent = food;//we want to display the food on the browser
+            foodListDiv.appendChild(foodItemEl)
+
+        })
+         //we need to append the heading into the menuEl
+         menuEl.appendChild(foodListDiv)
+         //we need to append the menuEl into the MenuDiv
+         menuDiv.appendChild(menuEl)
+    })
+    
+    
+    
+}
+
+const menuItems = generateMenuItems(menu);
+displayMenuItems(menuItems);
+
+
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
     // Get the order items list and the order total element from the HTML
+    const addOrderEl = document.getElementById('order-items');
 
     // Create a list item for the order
+    const foodNameDiv = document.createElement('div')
+    itemName.foods.forEach(food => {
+        const orderedItem = document.createElement('li')
+
+        orderedItem.textContent = f;
+    })
 
     // Set the text content of the list item to the item name
 

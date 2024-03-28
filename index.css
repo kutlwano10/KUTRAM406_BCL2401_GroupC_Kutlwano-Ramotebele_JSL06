@@ -80,3 +80,10 @@ footer {
     bottom: 0; /* Add this to position it at the bottom */
     width: 100%; /* Add this to span the full width */
 }
+.food-item {
+    list-style: none;
+    margin-top: 10px;
+}
+.menu-item {
+    margin-bottom: 20px;
+}
