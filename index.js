@@ -38,10 +38,18 @@ function displayMenuItems(menuItems) {
         menuItem.foods.forEach(food => {
             const foodItemEl = document.createElement('li');
             foodItemEl.classList.add('food-item')
-
+            
             foodItemEl.textContent = food;//we want to display the food on the browser
             foodListDiv.appendChild(foodItemEl)
+            
 
+        });
+        //We created a function that targets every item from the food-item classList and it displays on the web
+        foodListDiv.addEventListener('click', event => {
+            const clickedItem = event.target;
+            if (clickedItem.classList.contains('food-item')) {
+                addToOrder(clickedItem.textContent)
+            }
         })
          //we need to append the heading into the menuEl
          menuEl.appendChild(foodListDiv)
@@ -62,14 +70,12 @@ displayMenuItems(menuItems);
 function addToOrder(itemName) {
     // Get the order items list and the order total element from the HTML
     const addOrderEl = document.getElementById('order-items');
-
     // Create a list item for the order
-    const foodNameDiv = document.createElement('div')
-    itemName.foods.forEach(food => {
-        const orderedItem = document.createElement('li')
+    const orderedItem = document.createElement('li');
+    orderedItem.textContent = itemName;
+    addOrderEl.appendChild(orderedItem);
 
-        orderedItem.textContent = f;
-    })
+
 
     // Set the text content of the list item to the item name
 

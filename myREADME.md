@@ -1,0 +1,1 @@
+i had to change my code for the click function , they were displaying all of them when clicking 1 because i envoked the order function without specifically instructing it that when 1 is clicked it must do add it to the orders list
