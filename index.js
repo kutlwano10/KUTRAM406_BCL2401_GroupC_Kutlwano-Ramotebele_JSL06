@@ -6,6 +6,8 @@ const menu = {
     Desserts: ["Tiramisu", "Cheesecake"]
 };
 
+let totalPrice = 0;
+
 // Function to display menu items by category
 function generateMenuItems(menu) {
     // Get the menu container element from the HTML
@@ -61,11 +63,6 @@ function displayMenuItems(menuItems) {
     
 }
 
-const menuItems = generateMenuItems(menu);
-displayMenuItems(menuItems);
-
-
-
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
     // Get the order items list and the order total element from the HTML
@@ -75,20 +72,29 @@ function addToOrder(itemName) {
     orderedItem.textContent = itemName;
     addOrderEl.appendChild(orderedItem);
 
-
-
     // Set the text content of the list item to the item name
 
     // Append the list item to the order items list
 
     // Calculate and update the total price
+    const itemsPrice = 90;
+    totalPrice += itemsPrice;
+    updateTotal();
+
+
 
     // Update the text content of the order total element with the new total
+}
+function updateTotal() {
+    const orderTotalElem = document.getElementById('order-total');
+    orderTotalElem.textContent = totalPrice.toFixed(2)
 }
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
     // Call the function to display menu items
+    const menuItems = generateMenuItems(menu);
+displayMenuItems(menuItems);
 }
 
 // Start the menu system by calling the init function
