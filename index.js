@@ -58,9 +58,6 @@ function displayMenuItems(menuItems) {
          //we need to append the menuEl into the MenuDiv
          menuDiv.appendChild(menuEl)
     })
-    
-    
-    
 }
 
 // Callback function for adding an item to the order
@@ -80,8 +77,6 @@ function addToOrder(itemName) {
     const itemsPrice = 90;
     totalPrice += itemsPrice;
     updateTotal();
-
-
 
     // Update the text content of the order total element with the new total
 }
